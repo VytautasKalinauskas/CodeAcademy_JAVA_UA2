@@ -1,0 +1,20 @@
+@mixin justifyContentItemCenter($paddingValue) {
+  justify-content: center;
+  align-items: center;
+  padding: $paddingValue;
+}
+
+@mixin widthHeight($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin lightTheme {
+  background-color: $light-color;
+  color: $dark-color;
+}
+
+@mixin darkTheme {
+  background-color: $dark-color;
+  color: $light-color;
+}

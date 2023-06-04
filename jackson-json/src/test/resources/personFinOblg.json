@@ -1,0 +1,16 @@
+{
+  "person": {
+    "name": "Petras",
+    "age": 23
+  },
+  "finOblg": [
+    {
+      "name": "Internet",
+      "amount": 8.56
+    },
+    {
+      "name": "TV",
+      "amount": 11.99
+    }
+  ]
+}

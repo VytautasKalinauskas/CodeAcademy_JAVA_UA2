@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        main {
+            width: 800px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            background-color: #716e6e;
+            border-radius: 10%;
+        }
+
+        main .top {
+            width: 100%;
+            height: 40%;
+            display: flex;
+            justify-content: center;
+        }
+
+        main .top .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        main .bottom {
+            display: flex;
+            justify-content: space-evenly;
+            height: 100%;
+        }
+
+        main .bottom div {
+            width: 30%;
+            height: 90%;
+            background-color: gray;
+            border-radius: 5%;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .btn {
+            width: 80px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn:hover {
+            border: 1px solid black;
+            background-color: rgba(0, 0, 0, 0.91);
+            color: white;
+            border-radius: 15%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div class="top">
+        <div class="content">
+            <h1>Tekstas</h1>
+            <div class="btn">
+                Click Me!
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div>
+            <img src="img/1.jpg">
+        </div>
+        <div>
+            <img src="img/2.jpg">
+        </div>
+        <div>
+            <img src="img/3.jpg">
+        </div>
+    </div>
+</main>
+</body>
+</html>

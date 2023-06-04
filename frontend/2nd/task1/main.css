@@ -1,0 +1,52 @@
+* {
+    font-family: 'Palette Mosaic', cursive;
+}
+
+#ltFlag div,
+#deFlag div,
+#lvFlag div {
+    width: 150px;
+    height: 40px;
+}
+
+.radiusTop {
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+}
+
+.radiusBottom {
+    border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%;
+}
+
+.colorLtYellow {
+    background-color: #f5b312;
+}
+
+.colorLtGreen {
+    background-color: #006742;
+}
+
+.colorLtRed {
+    background-color: #bb262c;
+}
+
+.colorDeYellow {
+    background-color: #f7c800;
+}
+
+.colorDeRed {
+    background-color: #d60000;
+}
+
+.colorGeneralBlack {
+    background-color: black;
+}
+
+.colorGeneralWhite {
+    background-color: white;
+}
+
+.colorLvRed {
+    background-color: #bb262c;
+}

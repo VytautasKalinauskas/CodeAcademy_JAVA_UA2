@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/database/design/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/design/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/hibernate/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/hibernate/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/hibernate2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/hibernate2/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/jdbc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/database/jdbc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/design-patterns/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/design-patterns/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/generic-types-practice/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/generic-types-practice/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/generic-types/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/generic-types/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/inner-class/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/inner-class/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackson-json/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jackson-json/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/junit/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/junit/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kartojimas/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kartojimas/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lambdas-streams/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lambdas-streams/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring/di-example/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring/di-example/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

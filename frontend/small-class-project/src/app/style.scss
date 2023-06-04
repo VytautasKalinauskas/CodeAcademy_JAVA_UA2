@@ -1,0 +1,12 @@
+@import './abstracts/variables';
+
+body {
+  background-color: $body-bg;
+}
+
+nav {
+  &.bg-dark {
+    background-color: $navbar-bg-color !important;
+  }
+}
+

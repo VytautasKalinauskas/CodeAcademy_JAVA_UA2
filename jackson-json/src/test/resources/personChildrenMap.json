@@ -1,0 +1,11 @@
+{
+  "person": {
+    "name": "Petras",
+    "age": 23
+  },
+  "children": {
+    "001": "Ona",
+    "002": "Petras",
+    "009": "Zana"
+  }
+}

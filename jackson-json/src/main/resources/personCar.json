@@ -1,0 +1,12 @@
+{
+  "name": "Petras",
+  "age": 25,
+  "gender": true,
+  "car": {
+    "name": "WW",
+    "year": 2023,
+    "wheelCount": 4,
+    "doorCount": 5
+  },
+  "address": 1
+}

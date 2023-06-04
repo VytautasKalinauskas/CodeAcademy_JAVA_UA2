@@ -1,0 +1,70 @@
+@import './abstracts/variables';
+@import './abstracts/mixins';
+@import './abstracts/functions';
+
+#good-company {
+  @include darkTheme;
+  width: 800px;
+  border: 1px solid $border-color;
+  border-radius: 5%;
+  padding: 20px;
+  opacity: themeIntensity(2);
+
+  .left {
+    width: 50%;
+
+    .images {
+      .img {
+        @include widthHeight(70px, 70px);
+        background-color: $img-bg-color;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .right {
+    width: 50%;
+
+    .big-img {
+      height: 220px;
+
+      img {
+        @include widthHeight(100%, 100%);
+      }
+    }
+
+    .big-img-content {
+      height: 150px;
+    }
+
+    .t-small {
+      font-size: 12px;
+    }
+  }
+}
+
+.p-flex {
+  display: flex;
+  justify-content: space-around;
+
+  .row {
+    flex-direction: row;
+  }
+
+  &_column {
+    flex-direction: column;
+  }
+
+  &__column {
+    @extend .p-flex;
+    flex-direction: column;
+  }
+
+  .center {
+    @include justifyContentItemCenter(20px);
+  }
+}
+
+.p-gap-10 {
+  gap: 10px;
+}

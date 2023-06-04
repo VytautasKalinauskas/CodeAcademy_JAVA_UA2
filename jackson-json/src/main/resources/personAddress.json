@@ -1,0 +1,9 @@
+{
+  "name": "Petras",
+  "age": 25,
+  "gender": true,
+  "address2": {
+    "country": "LITHUANIA",
+    "city": "Kaunas"
+  }
+}

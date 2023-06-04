@@ -1,0 +1,15 @@
+{
+  "person": {
+    "name": "Petras",
+    "age": 23
+  },
+  "obligations": {
+    "001": {
+      "name": "Internet",
+      "amount": 8.56
+    },
+    "009": {
+      "name": "TV"
+    }
+  }
+}

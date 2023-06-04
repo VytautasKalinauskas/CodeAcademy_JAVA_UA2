@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <style>
+        * {
+            font-size: 22px;
+        }
+
+        body {
+            width: 800px;
+        }
+
+        .t-center {
+            text-align: center;
+        }
+
+        .t-left {
+            text-align: left;
+        }
+
+        .t-right {
+            text-align: right;
+        }
+
+        div {
+            background-color: #ded6d6;
+        }
+
+        .b-inline {
+            text-align: center;
+        }
+
+        .b-inline p,
+        .b-inline nav,
+        .b-inline .main-super {
+            display: inline-block;
+            width: 250px;
+        }
+
+        #main-center .content,
+        #main-bottom .content {
+            display: inline-block;
+            width: 500px;
+            height: 200px;
+            /*background-color: red;*/
+        }
+
+        #main-center .image,
+        #main-bottom .image {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+
+        #header {
+            height: 70px;
+        }
+
+        #footer {
+            height: 120px;
+        }
+
+        #main-top,
+        #main-center,
+        #main-bottom {
+            height: 220px;
+        }
+
+        .main-super {
+            text-align: center;
+            width: 100px;
+        }
+
+        #main-center .empty,
+        #main-bottom .empty {
+            display: inline-block;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div id="header" class="b-inline">
+        <p style="width: 100px">LOGO</p>
+        <nav class="t-right" style="width: 600px">
+            <a href="#">Menu Item 1</a>
+            <a href="#">Menu Item 2</a>
+            <a href="#">Menu Item 3</a>
+        </nav>
+    </div>
+</header>
+<br>
+<main>
+    <div id="main-top">
+        <div class="b-inline">
+            <div class="main-super"></div>
+            <div class="main-super">
+                <p>SUPER HEADLINE</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+            <div class="main-super"></div>
+        </div>
+    </div>
+
+    <br>
+    <div id="main-center">
+        <div class="empty"></div>
+        <div class="content">
+            <p class="t-left">Headline</p>
+            <p class="t-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci atque blanditiis, consequatur consequuntur debitis distinctio dolore doloremque, dolores excepturi fuga id iste laboriosam molestias, mollitia odit pariatur sit sunt.</p>
+        </div>
+        <div class="image">
+
+        </div>
+        <div class="empty"></div>
+    </div>
+
+    <br>
+    <div id="main-bottom">
+        <div class="empty"></div>
+        <div class="image">
+
+        </div>
+        <div class="content">
+            <p>Headline</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci atque blanditiis, consequatur consequuntur debitis distinctio dolore doloremque, dolores excepturi fuga id iste laboriosam molestias, mollitia odit pariatur sit sunt.</p>
+        </div>
+        <div class="empty"></div>
+    </div>
+</main>
+<br>
+<footer>
+    <div id="footer">
+        <div class="b-inline">
+            <p class="t-left">Additional Information 3</p>
+            <p class="t-center">Additional Information 2</p>
+            <p class="t-right">Additional Information 1</p>
+        </div>
+        <div class="t-center">All rights reserved</div>
+    </div>
+</footer>
+</body>
+</html>

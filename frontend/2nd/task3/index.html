@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task3</title>
+    <style>
+        #good-company {
+            width: 800px;
+            height: 400px;
+            /*background-color: gray;*/
+            border: 1px solid #006742;
+            border-radius: 5%;
+        }
+
+        .left {
+            /*background-color: #212020;*/
+        }
+
+        .right {
+            /*background-color: #925e5e;*/
+        }
+
+        #good-company .empty {
+            display: inline-block;
+            width: 5%;
+            background-color: red;
+        }
+
+        #good-company .left,
+        #good-company .right {
+            width: 44%;
+            height: 100%;
+            display: inline-block;
+        }
+
+        .left {
+            display: block;
+        }
+
+        .left .images .img {
+            width: 80px;
+            height: 80px;
+            background-color: #4c4c9e;
+            display: inline-block;
+            border-radius: 50%;
+        }
+
+        .left .images .img-inline {
+            display: inline-block;
+            width: 32%;
+        }
+
+        .right .big-img {
+            height: 190px;
+            background-color: #d85757;
+        }
+
+        .right .big-img-content {
+            height: 150px;
+            /*background-color: #725252;*/
+        }
+
+        .t-small {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<div id="good-company">
+    <div class="empty"></div>
+    <div class="left">
+        <div style="height: 20%">
+            <h1>You're in good company</h1>
+        </div>
+        <div style="height: 30%">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad consectetur doloribus ea illo incidunt,
+                ipsum minus mollitia odio sint ut? A ad animi cumque error esse necessitatibus quasi reiciendis,
+                vel?</p>
+        </div>
+        <div class="images" style="height: 50%">
+            <div class="img-inline">
+                <div class="img"></div>
+                <div class="img"></div>
+            </div>
+            <div class="img-inline">
+                <div class="img"></div>
+                <div class="img"></div>
+            </div>
+            <div class="img-inline">
+                <div class="img"></div>
+                <div class="img"></div>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="empty"></div>
+        <div style="border: 1px solid black">
+            <div class="big-img"></div>
+            <div class="big-img-content">
+                <h4>Kazkoks tekstas</h4>
+                <p class="t-small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab architecto beatae deleniti doloremque dolorum facere in ipsum iure, magni molestias perferendis quisquam</p>
+            </div>
+        </div>
+        <div class="empty"></div>
+    </div>
+    <div class="empty"></div>
+</div>
+</body>
+</html>
