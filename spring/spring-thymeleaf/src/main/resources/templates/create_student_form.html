@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Student</title>
+</head>
+<body>
+
+  <h1>Creating new student</h1>
+<form action="#" th:action="@{/create}" method="post" th:object="${student}">
+    <label>Name</label>
+    <input type="text" th:field="*{name}"/><br/>
+
+    <label>Surname</label>
+    <input type="text" th:field="*{surname}"/><br/>
+
+    <label>Course</label>
+    <input type="number" th:field="*{course}" ><br/>
+
+    <button type="submit">Create</button>
+</form>
+</body>
+</html>
