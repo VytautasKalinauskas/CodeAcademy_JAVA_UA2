@@ -25,8 +25,32 @@ public class StudentService {
 
     public List<Student> deleteStudent(Long id) {
 
-        return students;
+        students = students
+                .stream()
+                .filter(student -> !student.getId().equals(id))
+                .collect(Collectors.toList());
 
+        return students;
+    }
+
+    public Student getStudentById(Long id) {
+
+        Student studentToGet = students
+                .stream()
+                .filter(student -> student.getId().equals(id))
+                .findFirst().orElseThrow();
+
+        return studentToGet;
+    }
+
+    public List<Student> updateStudentById(Long id, Student student) {
+
+        Student studentToUpdate = getStudentById(id);
+        studentToUpdate.setName(student.getName());
+        studentToUpdate.setSurname(student.getSurname());
+        studentToUpdate.setCourse(student.getCourse());
+
+        return students;
     }
 
 
