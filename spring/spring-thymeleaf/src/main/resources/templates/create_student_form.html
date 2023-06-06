@@ -7,7 +7,7 @@
 <body>
 
   <h1>Creating new student</h1>
-<form action="#" th:action="@{/create}" method="post" th:object="${student}">
+<form action="#" th:action="@{/student/create}" method="post" th:object="${student}">
     <label>Name</label>
     <input type="text" th:field="*{name}"/><br/>
 

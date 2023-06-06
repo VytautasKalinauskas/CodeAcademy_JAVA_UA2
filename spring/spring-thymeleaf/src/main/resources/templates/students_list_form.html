@@ -25,13 +25,13 @@
             <td th:text="${student.name}">Name</td>
             <td th:text="${student.surname}">Surname</td>
             <td th:text="${student.course}">Course</td>
-            <td><a th:href="@{/update/{id}(id=${student.id})}">Update</a></td>
-            <td><a th:href="@{/delete/{id}(id=${student.id})}">Delete</a></td>
+            <td><a th:href="@{/student/update/{id}(id=${student.id})}">Update</a></td>
+            <td><a th:href="@{/student/delete/{id}(id=${student.id})}">Delete</a></td>
         </tr>
         </tbody>
     </table>
 
-<a th:href="@{/create}">Create new student</a>
+<a th:href="@{/student/create}">Create new student</a>
 
 </body>
 </html>
