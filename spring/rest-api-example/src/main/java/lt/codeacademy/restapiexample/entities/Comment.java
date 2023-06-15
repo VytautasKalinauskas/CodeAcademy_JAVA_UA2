@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lt.codeacademy.restapiexample.dto.CommentDto;
+import org.apache.tomcat.jni.Local;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -12,20 +14,14 @@ import lt.codeacademy.restapiexample.dto.CommentDto;
 @NoArgsConstructor
 public class Comment {
 
-    Long id;
-    String text;
-    User author;
+    private Long id;
 
-    public Comment(CommentDto commentDto) {
+    private String text;
 
-        this.id = commentDto.getId();
-        this.text = commentDto.getText();
-        author.setId(commentDto.getAuthorId());
-        this.author = author;
+    private User author;
 
-    }
+    private LocalDateTime createdAt;
 
+    private LocalDateTime updatedAt;
 
 }
-
-

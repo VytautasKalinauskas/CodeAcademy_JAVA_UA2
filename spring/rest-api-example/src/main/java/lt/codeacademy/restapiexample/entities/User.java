@@ -5,7 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.time.LocalDateTime;
+
 
 @Getter
 @Setter
@@ -13,9 +14,16 @@ import java.util.List;
 @NoArgsConstructor
 public class User {
 
-
     private Long id;
+
     private String username;
-    private List<Comment> commentList;
+
+    private String firstName;
+
+    private String lastName;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 
 }
