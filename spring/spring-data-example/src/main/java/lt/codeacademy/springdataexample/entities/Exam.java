@@ -20,7 +20,7 @@ public class Exam {
     @Column(nullable = false)
     private String title;
 
-    @OneToMany(mappedBy = "exam", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "exam", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Question> questions;
 
     @Column(name = "created_at")
