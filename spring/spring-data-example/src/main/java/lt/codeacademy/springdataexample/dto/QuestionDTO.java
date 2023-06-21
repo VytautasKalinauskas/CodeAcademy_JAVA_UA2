@@ -11,6 +11,6 @@ import lombok.Setter;
 @Setter
 public class QuestionDTO {
     private Long id;
-
     private String text;
+    private Long examId;
 }

@@ -1,7 +1,9 @@
 package lt.codeacademy.springdataexample.controllers;
 
 import lt.codeacademy.springdataexample.converters.ExamConverter;
+import lt.codeacademy.springdataexample.converters.QuestionConverter;
 import lt.codeacademy.springdataexample.dto.ExamDTO;
+import lt.codeacademy.springdataexample.dto.QuestionDTO;
 import lt.codeacademy.springdataexample.entities.Exam;
 import lt.codeacademy.springdataexample.entities.Question;
 import lt.codeacademy.springdataexample.services.ExamService;
@@ -26,8 +28,10 @@ public class ExamController {
     private QuestionService questionService;
 
     @PostMapping
-    public void addExam(@RequestBody Exam exam) {
-        this.examService.addExam(exam);
+    public ResponseEntity<ExamDTO> addExam(@RequestBody ExamDTO examDto) {
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(examService.addExam(ExamConverter.convertExamDtoToExam(examDto)));
     }
 
     @GetMapping
@@ -37,10 +41,11 @@ public class ExamController {
 
 
     @PostMapping("/{id}/questions")
-    public ResponseEntity<Void> addExamQuestion(@PathVariable Long id, @RequestBody Question question) {
+    public ResponseEntity<QuestionDTO> addExamQuestion(@PathVariable Long id, @RequestBody QuestionDTO questionDto) {
         try {
-            this.questionService.addQuestionToExam(id, question);
-            return ResponseEntity.status(HttpStatus.CREATED).build();
+            return ResponseEntity
+                    .status(HttpStatus.CREATED)
+                    .body(questionService.addQuestionToExam(id, QuestionConverter.convertQuestionDtoToQuestion(questionDto)));
         } catch (NoSuchElementException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Exam by ID: %s not found", id));
         }

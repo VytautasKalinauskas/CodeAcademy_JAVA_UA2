@@ -8,6 +8,16 @@ import java.util.List;
 
 public abstract class ExamConverter {
 
+    public static Exam convertExamDtoToExam(ExamDTO examDTO) {
+        Exam exam = null;
+        if (examDTO != null) {
+            exam = new Exam();
+            exam.setId(examDTO.getId());
+            exam.setTitle(examDTO.getTitle());
+        }
+        return exam;
+    }
+
     public static ExamDTO convertExamToExamDTO(Exam exam) {
         ExamDTO examDTO = null;
         if (exam != null) {

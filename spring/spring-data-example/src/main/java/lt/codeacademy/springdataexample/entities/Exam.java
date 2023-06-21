@@ -10,6 +10,7 @@ import java.util.List;
 @Setter
 @RequiredArgsConstructor
 @Entity
+@Table(name = "exam")
 public class Exam {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

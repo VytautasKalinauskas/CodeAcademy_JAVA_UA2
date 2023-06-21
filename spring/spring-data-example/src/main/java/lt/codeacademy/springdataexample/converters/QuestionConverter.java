@@ -8,12 +8,27 @@ import java.util.List;
 
 public abstract class QuestionConverter {
 
+    public static Question convertQuestionDtoToQuestion(QuestionDTO questionDTO) {
+        Question question = null;
+        if(questionDTO != null) {
+            question = new Question();
+            question.setId(questionDTO.getId());
+            question.setText(questionDTO.getText());
+        }
+
+        return question;
+    }
+
     public static QuestionDTO convertQuestionToDTO(Question question) {
         QuestionDTO questionDTO = null;
         if (question != null) {
             questionDTO = new QuestionDTO();
             questionDTO.setId(question.getId());
             questionDTO.setText(question.getText());
+
+            if(question.getExam() != null) {
+                questionDTO.setExamId(question.getExam().getId());
+            }
         }
         return questionDTO;
     }
