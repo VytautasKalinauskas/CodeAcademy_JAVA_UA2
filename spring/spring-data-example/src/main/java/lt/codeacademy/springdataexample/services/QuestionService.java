@@ -12,12 +12,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class QuestionService {
 
-    private ExamService examService;
     private QuestionRepository questionRepository;
 
-    public QuestionDTO addQuestionToExam(Long examId, Question question) {
-        Exam examById = this.examService.getExamById(examId);
-        question.setExam(examById);
+    public QuestionDTO addQuestionToExam(Question question) {
         this.questionRepository.saveAndFlush(question);
         return QuestionConverter.convertQuestionToDTO(question);
     }

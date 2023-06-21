@@ -24,9 +24,6 @@ public class ExamController {
     @Autowired
     private ExamService examService;
 
-    @Autowired
-    private QuestionService questionService;
-
     @PostMapping
     public ResponseEntity<ExamDTO> addExam(@RequestBody ExamDTO examDto) {
         return ResponseEntity
@@ -35,19 +32,16 @@ public class ExamController {
     }
 
     @GetMapping
-    public List<ExamDTO> getAllExams() {
-        return ExamConverter.convertExamsToExamDTO(this.examService.getAllExams());
+    @RequestMapping("/{id}")
+    public ResponseEntity<ExamDTO> getExamById(@PathVariable Long id) {
+
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(ExamConverter.convertExamToExamDTO(examService.getExamById(id)));
     }
 
-
-    @PostMapping("/{id}/questions")
-    public ResponseEntity<QuestionDTO> addExamQuestion(@PathVariable Long id, @RequestBody QuestionDTO questionDto) {
-        try {
-            return ResponseEntity
-                    .status(HttpStatus.CREATED)
-                    .body(questionService.addQuestionToExam(id, QuestionConverter.convertQuestionDtoToQuestion(questionDto)));
-        } catch (NoSuchElementException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Exam by ID: %s not found", id));
-        }
+    @GetMapping
+    public List<ExamDTO> getAllExams() {
+        return ExamConverter.convertExamsToExamDTO(this.examService.getAllExams());
     }
 }

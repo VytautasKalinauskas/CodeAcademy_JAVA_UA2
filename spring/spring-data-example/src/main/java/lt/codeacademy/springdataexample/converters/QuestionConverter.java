@@ -1,6 +1,7 @@
 package lt.codeacademy.springdataexample.converters;
 
 import lt.codeacademy.springdataexample.dto.QuestionDTO;
+import lt.codeacademy.springdataexample.entities.Exam;
 import lt.codeacademy.springdataexample.entities.Question;
 
 import java.util.ArrayList;
@@ -14,6 +15,12 @@ public abstract class QuestionConverter {
             question = new Question();
             question.setId(questionDTO.getId());
             question.setText(questionDTO.getText());
+
+            if(questionDTO.getExamId() != null) {
+                Exam exam = new Exam();
+                exam.setId(questionDTO.getExamId());
+                question.setExam(exam);
+            }
         }
 
         return question;
