@@ -31,14 +31,38 @@ public class ExamController {
                 .body(examService.addExam(ExamConverter.convertExamDtoToExam(examDto)));
     }
 
-    @GetMapping
-    @RequestMapping("/{id}")
+    @PutMapping
+    public ResponseEntity<ExamDTO> updateExam(@RequestBody ExamDTO examDTO) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(examService.updateExam(examDTO));
+    }
+
+    @GetMapping("/{id}")
     public ResponseEntity<ExamDTO> getExamById(@PathVariable Long id) {
 
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(ExamConverter.convertExamToExamDTO(examService.getExamById(id)));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteExamById(@PathVariable Long id) {
+
+        examService.deleteExamById(id);
+        return ResponseEntity.noContent().build();
+
+    }
+
+
+//    @GetMapping("/searchByTitle")
+//    public ResponseEntity<ExamDTO> getExamByTitle(@RequestParam String title) {
+//
+//        return ResponseEntity
+//                .status(HttpStatus.OK)
+//                .body(ExamConverter.convertExamToExamDTO(examService.getExamByTitle(title)));
+//    }
+
 
     @GetMapping
     public List<ExamDTO> getAllExams() {

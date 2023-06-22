@@ -21,8 +21,24 @@ public class ExamService {
     }
 
     public Exam getExamById(Long examId) {
+        Exam e = examRepository.findById(examId).orElse(null);
         return this.examRepository.findById(examId).get();
     }
+
+    public void deleteExamById(Long id) {
+        this.examRepository.deleteById(id);
+    }
+
+    public ExamDTO updateExam(ExamDTO examDTO) {
+        Exam exam = examRepository.findById(examDTO.getId()).orElseThrow();
+        exam.setTitle(examDTO.getTitle());
+        examRepository.save(exam);
+        return ExamConverter.convertExamToExamDTO(exam);
+    }
+
+//    public Exam getExamByTitle(String title) {
+//        return this.examRepository.findByTitleLike(String.format("%%%s%%", title)).get();
+//    }
 
     public List<Exam> getAllExams() {
         return this.examRepository.findAll();
