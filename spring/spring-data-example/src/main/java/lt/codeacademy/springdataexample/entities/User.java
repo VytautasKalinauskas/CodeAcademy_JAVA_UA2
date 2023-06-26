@@ -1,26 +1,33 @@
 package lt.codeacademy.springdataexample.entities;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
-@ToString
+@Entity
+@Table(name = "users")
 @Getter
 @Setter
-@RequiredArgsConstructor
-@Entity
-@Table(name = "exam")
-public class Exam {
+@AllArgsConstructor
+@NoArgsConstructor
+public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
-    private String title;
 
-    @OneToMany(mappedBy = "exam", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Question> questions;
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "surname")
+    private String surname;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
@@ -32,12 +39,9 @@ public class Exam {
     void prePersist() {
         this.createdAt = LocalDateTime.now();
     }
-
     @PreUpdate
     void preUpdate() {
         this.updatedAt = LocalDateTime.now();
     }
-
-
 
 }
