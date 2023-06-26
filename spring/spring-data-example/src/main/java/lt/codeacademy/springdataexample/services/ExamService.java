@@ -8,7 +8,6 @@ import lt.codeacademy.springdataexample.repositories.ExamRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 @AllArgsConstructor
 @Service
 public class ExamService {

@@ -1,44 +1,45 @@
 package lt.codeacademy.springdataexample.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
-@ToString
+@Entity
+@Table(name = "answer")
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-@RequiredArgsConstructor
-@Entity
-@Table(name = "question")
-public class Question {
+public class Answer {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+
+    @Column(name = "text", nullable = false)
     private String text;
 
-    @ManyToOne
-    private Exam exam;
+    @Column(name = "is_correct")
+    private Boolean isCorrect;
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    @ManyToOne
+    private Question question;
 
     @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
+    private LocalDateTime createdAt;
 
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Answer> answers;
+    @Column(name = "created_at")
+    private LocalDateTime updatedAt;
 
     @PrePersist
     void prePersist() {
         this.createdAt = LocalDateTime.now();
     }
-
     @PreUpdate
     void preUpdate() {
         this.updatedAt = LocalDateTime.now();

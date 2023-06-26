@@ -32,6 +32,7 @@ public abstract class QuestionConverter {
             questionDTO = new QuestionDTO();
             questionDTO.setId(question.getId());
             questionDTO.setText(question.getText());
+            questionDTO.setAnswers(AnswerConverter.convertAnswersToDto(question.getAnswers()));
 
             if(question.getExam() != null) {
                 questionDTO.setExamId(question.getExam().getId());
