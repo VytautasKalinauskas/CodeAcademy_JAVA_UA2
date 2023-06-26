@@ -30,10 +30,10 @@ public class Answer {
     @ManyToOne
     private Question question;
 
-    @Column(name = "updated_at")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(name = "created_at")
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     @PrePersist

@@ -17,4 +17,8 @@ public class QuestionService {
         this.questionRepository.saveAndFlush(question);
         return QuestionConverter.convertQuestionToDTO(question);
     }
+
+    public QuestionDTO getQuestionById(Long id) {
+        return QuestionConverter.convertQuestionToDTO(questionRepository.getReferenceById(id));
+    }
 }
