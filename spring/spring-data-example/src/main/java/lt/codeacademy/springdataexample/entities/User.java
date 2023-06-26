@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -28,6 +29,9 @@ public class User {
 
     @Column(name = "surname")
     private String surname;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<UserExam> userExams;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

@@ -22,6 +22,9 @@ public class Exam {
     @OneToMany(mappedBy = "exam", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Question> questions;
 
+    @OneToMany(mappedBy = "exam", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<UserExam> userExams;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 

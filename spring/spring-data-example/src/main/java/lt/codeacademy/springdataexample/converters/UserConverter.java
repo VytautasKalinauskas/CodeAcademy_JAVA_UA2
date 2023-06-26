@@ -29,7 +29,9 @@ public abstract class UserConverter {
             userDto.setName(user.getName());
             userDto.setUsername(user.getUsername());
             userDto.setSurname(user.getSurname());
+            userDto.setUserExams(UserExamConverter.convertUserExamsListToDtoList(user.getUserExams()));
         }
+
         return userDto;
     }
 
