@@ -9,6 +9,7 @@ import lt.codeacademy.springdataexample.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 @AllArgsConstructor
@@ -17,7 +18,7 @@ public class UserService {
     private UserRepository userRepository;
 
     public UserDto getUserById(Long id) {
-        return UserConverter.convertUserToUserDto(userRepository.getReferenceById(id));
+        return UserConverter.convertUserToUserDto(userRepository.findById(id).orElseThrow(() -> new NoSuchElementException()));
     }
 
     public List<UserDto> getUsers() {
@@ -30,8 +31,12 @@ public class UserService {
     }
 
     public UserDto updateUser(User user) {
-        userRepository.save(user);
-        return UserConverter.convertUserToUserDto(user);
+        User userToUpdate = userRepository.findById(user.getId()).orElseThrow(() -> new NoSuchElementException());
+        userToUpdate.setUsername(user.getUsername());
+        userToUpdate.setName(user.getName());
+        userToUpdate.setSurname(user.getSurname());
+        userRepository.save(userToUpdate);
+        return UserConverter.convertUserToUserDto(userToUpdate);
     }
 
     public void deleteUserById(Long id) {

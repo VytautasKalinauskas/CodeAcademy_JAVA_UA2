@@ -29,6 +29,10 @@ public class AnswerService {
         return AnswerConverter.convertAnswersToDto(answerRepository.findAll());
     }
 
+    public List<Answer> getAllAnswersByIds(List<Long> ids) {
+        return answerRepository.findAllById(ids);
+    }
+
     public void deleteAnswerById(Long id) {
         answerRepository.deleteById(id);
     }

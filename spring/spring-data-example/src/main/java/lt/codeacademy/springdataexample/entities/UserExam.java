@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "user_exam")
@@ -26,7 +27,16 @@ public class UserExam {
     @ManyToOne
     private Exam exam;
 
+    @Column(name = "score")
     private Double score;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_exams_answers",
+            joinColumns = @JoinColumn(name = "user_exam_id"),
+            inverseJoinColumns = @JoinColumn(name = "answer_id")
+    )
+    List<Answer> answers;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

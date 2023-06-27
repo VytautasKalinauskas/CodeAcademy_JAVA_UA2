@@ -1,9 +1,6 @@
 package lt.codeacademy.springdataexample.controllers;
 
-import lt.codeacademy.springdataexample.converters.AnswerConverter;
 import lt.codeacademy.springdataexample.converters.UserConverter;
-import lt.codeacademy.springdataexample.dto.AnswerDTO;
-import lt.codeacademy.springdataexample.dto.CreateUpdateAnswerDTO;
 import lt.codeacademy.springdataexample.dto.UserDto;
 import lt.codeacademy.springdataexample.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

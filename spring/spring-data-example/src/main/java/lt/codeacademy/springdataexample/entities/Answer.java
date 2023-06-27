@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "answer")
@@ -30,11 +31,18 @@ public class Answer {
     @ManyToOne
     private Question question;
 
+    @ManyToMany(mappedBy = "answers")
+    List<UserExam> userExamList;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    public Answer(Long id) {
+        this.id = id;
+    }
 
     @PrePersist
     void prePersist() {

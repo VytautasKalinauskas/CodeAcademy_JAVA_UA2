@@ -20,7 +20,6 @@ public class ExamService {
     }
 
     public Exam getExamById(Long examId) {
-        Exam e = examRepository.findById(examId).orElse(null);
         return this.examRepository.findById(examId).get();
     }
 
