@@ -16,7 +16,6 @@ public class AnswerService {
     private AnswerRepository answerRepository;
 
     public AnswerDTO addAnswer(Answer answer) {
-
         answerRepository.save(answer);
         return AnswerConverter.convertAnswerToAnswerDto(answer);
     }
@@ -25,8 +24,16 @@ public class AnswerService {
         return AnswerConverter.convertAnswerToAnswerDto(answerRepository.getReferenceById(id));
     }
 
-    public List<AnswerDTO> getAllAnswers() {
-        return AnswerConverter.convertAnswersToDto(answerRepository.findAll());
+    public List<AnswerDTO> getAllAnswers(Boolean isCorrect) {
+        List<Answer> answers;
+
+        if (isCorrect != null) {
+            answers = answerRepository.findAllByIsCorrect(isCorrect);
+        } else {
+            answers = answerRepository.findAll();
+        }
+
+        return AnswerConverter.convertAnswersToDto(answers);
     }
 
     public List<Answer> getAllAnswersByIds(List<Long> ids) {

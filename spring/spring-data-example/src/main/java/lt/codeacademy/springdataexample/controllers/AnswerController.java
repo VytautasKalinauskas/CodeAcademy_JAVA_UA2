@@ -37,8 +37,8 @@ public class AnswerController {
     }
 
     @GetMapping
-    public ResponseEntity<List<AnswerDTO>> getAllAnswers() {
-        return ResponseEntity.ok(answerService.getAllAnswers());
+    public ResponseEntity<List<AnswerDTO>> getAllAnswers(@RequestParam(name = "isCorrect", required = false) Boolean isCorrect) {
+        return ResponseEntity.ok(answerService.getAllAnswers(isCorrect));
     }
 
     @DeleteMapping("/{id}")
