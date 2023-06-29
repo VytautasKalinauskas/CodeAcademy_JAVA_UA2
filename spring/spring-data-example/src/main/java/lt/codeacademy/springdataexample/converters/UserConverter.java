@@ -2,6 +2,7 @@ package lt.codeacademy.springdataexample.converters;
 
 import lt.codeacademy.springdataexample.dto.UserDto;
 import lt.codeacademy.springdataexample.entities.User;
+import org.springframework.data.domain.Page;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,17 @@ public abstract class UserConverter {
         if (usersList != null && !usersList.isEmpty()) {
             userDtoList = new ArrayList<>();
             for (User u : usersList) {
+                userDtoList.add(convertUserToUserDto(u));
+            }
+        }
+        return userDtoList;
+    }
+
+    public static List<UserDto> convertUserPageToUserDtoList(Page<User> userPage) {
+        List<UserDto> userDtoList = null;
+        if (userPage != null && !userPage.isEmpty()) {
+            userDtoList = new ArrayList<>();
+            for (User u : userPage) {
                 userDtoList.add(convertUserToUserDto(u));
             }
         }

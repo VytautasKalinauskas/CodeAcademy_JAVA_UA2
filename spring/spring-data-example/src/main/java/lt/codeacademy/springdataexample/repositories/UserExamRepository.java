@@ -8,4 +8,7 @@ public interface UserExamRepository extends JpaRepository<UserExam, Long> {
 
     @Query("SELECT AVG(score) FROM UserExam WHERE exam.id = :examId")
     Double getAverageScoreByExamId(Long examId);
+
+    Integer countByExam_Id(Long id);
+
 }
