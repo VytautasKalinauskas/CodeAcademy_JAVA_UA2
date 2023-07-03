@@ -5,6 +5,8 @@ import lt.codeacademy.springdataexample.dto.AnswerDTO;
 import lt.codeacademy.springdataexample.dto.CreateUpdateAnswerDTO;
 import lt.codeacademy.springdataexample.services.AnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,7 @@ public class AnswerController {
 
     @Autowired
     AnswerService answerService;
+
     @PostMapping
     public ResponseEntity<AnswerDTO> createAnswer(@RequestBody CreateUpdateAnswerDTO answerDTO) {
 
@@ -37,8 +40,9 @@ public class AnswerController {
     }
 
     @GetMapping
-    public ResponseEntity<List<AnswerDTO>> getAllAnswers(@RequestParam(name = "isCorrect", required = false) Boolean isCorrect) {
-        return ResponseEntity.ok(answerService.getAllAnswers(isCorrect));
+    public ResponseEntity<List<AnswerDTO>> getAllAnswers(@RequestParam(name = "isCorrect", required = false) Boolean isCorrect,
+                                                         @PageableDefault Pageable pageable) {
+        return ResponseEntity.ok(answerService.getAllAnswers(isCorrect, pageable));
     }
 
     @DeleteMapping("/{id}")
@@ -46,9 +50,6 @@ public class AnswerController {
         answerService.deleteAnswerById(id);
         return ResponseEntity.noContent().build();
     }
-
-
-
 
 
 }

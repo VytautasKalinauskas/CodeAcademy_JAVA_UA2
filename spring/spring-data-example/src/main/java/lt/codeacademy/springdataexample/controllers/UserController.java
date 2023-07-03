@@ -4,20 +4,20 @@ import lt.codeacademy.springdataexample.converters.UserConverter;
 import lt.codeacademy.springdataexample.dto.UserDto;
 import lt.codeacademy.springdataexample.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @CrossOrigin
 @RestController
 @RequestMapping("/users")
 public class UserController {
 
-    private static final Integer DEFAULT_PAGE_SIZE = 5;
 
     @Autowired
     UserService userService;
@@ -41,30 +41,8 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<UserDto>> getAllUsers(@RequestParam(required = false) Integer pageNumber, @RequestParam(required = false) Integer pageSize) {
-        Pageable pageable = null;
-        if (pageNumber != null) {
-            if (pageSize == null) {
-                pageSize = DEFAULT_PAGE_SIZE;
-
-                // 20:00
-                //-------------------------------------------
-                // 1,2,3,4,10,11,12,13,23,123,1123543,534,123,65
-                // users pageNumber = 2, pageSize = 3
-                // 12,13,23
-                //-------------------------------------------
-                // 20:05
-                // 123,1,2,3,4,10,11,12,13,23,123,1123543,534,123,65
-                // users pageNumber = 2, pageSize = 3
-                // 11,12,13
-
-
-            }
-            pageable = PageRequest.of(pageNumber, pageSize);
-        }
+    public ResponseEntity<List<UserDto>> getAllUsers(@PageableDefault Pageable pageable) {
         return ResponseEntity.ok(userService.getUsers(pageable));
-
-
     }
 
     @DeleteMapping("/{id}")

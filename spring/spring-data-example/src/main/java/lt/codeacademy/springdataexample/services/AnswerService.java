@@ -5,6 +5,8 @@ import lt.codeacademy.springdataexample.converters.AnswerConverter;
 import lt.codeacademy.springdataexample.dto.AnswerDTO;
 import lt.codeacademy.springdataexample.entities.Answer;
 import lt.codeacademy.springdataexample.repositories.AnswerRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,13 +26,12 @@ public class AnswerService {
         return AnswerConverter.convertAnswerToAnswerDto(answerRepository.getReferenceById(id));
     }
 
-    public List<AnswerDTO> getAllAnswers(Boolean isCorrect) {
-        List<Answer> answers;
-
+    public List<AnswerDTO> getAllAnswers(Boolean isCorrect, Pageable pageable) {
+        Page<Answer> answers;
         if (isCorrect != null) {
-            answers = answerRepository.findAllByIsCorrect(isCorrect);
+            answers = answerRepository.findAllByIsCorrect(isCorrect, pageable);
         } else {
-            answers = answerRepository.findAll();
+            answers = answerRepository.findAll(pageable);
         }
 
         return AnswerConverter.convertAnswersToDto(answers);

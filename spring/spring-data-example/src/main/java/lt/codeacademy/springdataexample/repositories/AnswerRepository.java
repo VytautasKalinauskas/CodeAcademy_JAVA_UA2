@@ -20,6 +20,8 @@ public interface AnswerRepository extends JpaRepository<Answer, Long> {
     @Query(value = "SELECT a FROM Answer a WHERE a.isCorrect = :isCorrect")
     List<Answer> getAnswersByIsCorrectHql(@Param("isCorrect") Boolean isCorrect);
 
-    List<Answer> findAllByIsCorrect(Boolean isCorrect);
+    Page<Answer> findAllByIsCorrect(Boolean isCorrect, Pageable pageable);
+
+    Page<Answer> findAllByText(String text, Pageable pageable);
 
 }

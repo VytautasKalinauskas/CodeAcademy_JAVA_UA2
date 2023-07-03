@@ -2,7 +2,6 @@ package lt.codeacademy.springdataexample.controllers;
 
 import lt.codeacademy.springdataexample.converters.ExamConverter;
 import lt.codeacademy.springdataexample.dto.ExamDTO;
-import lt.codeacademy.springdataexample.dto.QuestionDTO;
 import lt.codeacademy.springdataexample.services.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

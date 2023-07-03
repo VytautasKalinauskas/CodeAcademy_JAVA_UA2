@@ -46,9 +46,9 @@ public abstract class AnswerConverter {
         return answerDto;
     }
 
-    public static List<AnswerDTO> convertAnswersToDto(List<Answer> answersList) {
+    public static List<AnswerDTO> convertAnswersToDto(Iterable<Answer> answersList) {
         List<AnswerDTO> answerDTOList = null;
-        if (answersList != null && !answersList.isEmpty()) {
+        if (answersList != null) {
             answerDTOList = new ArrayList<>();
             for (Answer a : answersList) {
                 answerDTOList.add(convertAnswerToAnswerDto(a));
@@ -56,6 +56,4 @@ public abstract class AnswerConverter {
         }
         return answerDTOList;
     }
-
-
 }
