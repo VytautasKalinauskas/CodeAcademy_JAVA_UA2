@@ -25,6 +25,8 @@ public class Exam {
     @OneToMany(mappedBy = "exam", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<UserExam> userExams;
 
+    private Integer difficulty;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 

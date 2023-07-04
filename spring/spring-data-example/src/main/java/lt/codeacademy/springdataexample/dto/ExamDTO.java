@@ -14,9 +14,8 @@ import java.util.List;
 public class ExamDTO {
 
     private Long id;
-
-    private String title;
-
+    private Integer difficulty;
     private List<QuestionDTO> questions;
+    private String title;
 
 }

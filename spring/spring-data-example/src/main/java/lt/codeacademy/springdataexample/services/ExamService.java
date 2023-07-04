@@ -5,9 +5,10 @@ import lt.codeacademy.springdataexample.converters.ExamConverter;
 import lt.codeacademy.springdataexample.dto.ExamDTO;
 import lt.codeacademy.springdataexample.entities.Exam;
 import lt.codeacademy.springdataexample.repositories.ExamRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 @AllArgsConstructor
 @Service
 public class ExamService {
@@ -38,7 +39,10 @@ public class ExamService {
 //        return this.examRepository.findByTitleLike(String.format("%%%s%%", title)).get();
 //    }
 
-    public List<Exam> getAllExams() {
-        return this.examRepository.findAll();
+    public Page<Exam> getAllExams(Integer difficulty, Pageable pageable) {
+        if (difficulty != null) {
+            return this.examRepository.findAllByDifficulty(difficulty, pageable);
+        }
+        return this.examRepository.findAll(pageable);
     }
 }

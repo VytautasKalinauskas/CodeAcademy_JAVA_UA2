@@ -4,6 +4,7 @@ import lt.codeacademy.springdataexample.converters.ExamConverter;
 import lt.codeacademy.springdataexample.dto.ExamDTO;
 import lt.codeacademy.springdataexample.services.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -58,7 +59,7 @@ public class ExamController {
 
 
     @GetMapping
-    public List<ExamDTO> getAllExams() {
-        return ExamConverter.convertExamsToExamDTO(this.examService.getAllExams());
+    public List<ExamDTO> getAllExams(@RequestParam(name = "difficulty", required = false) Integer difficulty, Pageable pageable) {
+        return ExamConverter.convertExamsToExamDTO(this.examService.getAllExams(difficulty, pageable));
     }
 }
