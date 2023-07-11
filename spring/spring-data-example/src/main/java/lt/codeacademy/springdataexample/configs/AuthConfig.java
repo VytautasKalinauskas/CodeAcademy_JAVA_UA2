@@ -2,7 +2,6 @@ package lt.codeacademy.springdataexample.configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,9 +15,10 @@ public class AuthConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http.csrf().disable()
+                .authorizeRequests()
                 .antMatchers("/exams**").permitAll() // Everyone can access all /exams EPs
-//                .anyRequest().authenticated()
+                .anyRequest().authenticated()
                 .and()
                 .httpBasic();
         return http.build();
@@ -44,8 +44,7 @@ public class AuthConfig {
                 .roles("GUEST")
                 .build();
 
-        UserDetails[] userDetails = new UserDetails[]{student, teacher, guest};
-        return new InMemoryUserDetailsManager(userDetails);
+        return new InMemoryUserDetailsManager(student, teacher, guest);
     }
 
 
