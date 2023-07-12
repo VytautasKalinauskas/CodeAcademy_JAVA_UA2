@@ -1,7 +1,7 @@
 package lt.codeacademy.springdataexample.converters;
 
 import lt.codeacademy.springdataexample.dto.UserDto;
-import lt.codeacademy.springdataexample.entities.User;
+import lt.codeacademy.springdataexample.entities.UserEntity;
 import org.springframework.data.domain.Page;
 
 import java.util.ArrayList;
@@ -10,48 +10,52 @@ import java.util.List;
 public abstract class UserConverter {
 
 
-    public static User convertUserDtoToUser(UserDto userDto) {
-        User user = null;
+    public static UserEntity convertUserDtoToUser(UserDto userDto) {
+        UserEntity userEntity = null;
         if (userDto != null) {
-            user = new User();
-            user.setId(userDto.getId());
-            user.setName(userDto.getName());
-            user.setSurname(userDto.getSurname());
-            user.setUsername(userDto.getUsername());
+            userEntity = new UserEntity();
+            userEntity.setId(userDto.getId());
+            userEntity.setName(userDto.getName());
+            userEntity.setSurname(userDto.getSurname());
+            userEntity.setUsername(userDto.getUsername());
+            userEntity.setPassword(userDto.getPassword());
+            userEntity.setRole(userDto.getRole());
         }
-        return user;
+        return userEntity;
     }
 
-    public static UserDto convertUserToUserDto(User user) {
+    public static UserDto convertUserToUserDto(UserEntity userEntity) {
         UserDto userDto = null;
-        if (user != null) {
+        if (userEntity != null) {
             userDto = new UserDto();
-            userDto.setId(user.getId());
-            userDto.setName(user.getName());
-            userDto.setUsername(user.getUsername());
-            userDto.setSurname(user.getSurname());
-            userDto.setUserExams(UserExamConverter.convertUserExamsListToDtoList(user.getUserExams()));
+            userDto.setId(userEntity.getId());
+            userDto.setName(userEntity.getName());
+            userDto.setUsername(userEntity.getUsername());
+            userDto.setSurname(userEntity.getSurname());
+            userDto.setRole(userEntity.getRole());
+            userDto.setPassword(userEntity.getPassword());
+            userDto.setUserExams(UserExamConverter.convertUserExamsListToDtoList(userEntity.getUserExams()));
         }
 
         return userDto;
     }
 
-    public static List<UserDto> convertUserListToUserDtoList(List<User> usersList) {
+    public static List<UserDto> convertUserListToUserDtoList(List<UserEntity> usersList) {
         List<UserDto> userDtoList = null;
         if (usersList != null && !usersList.isEmpty()) {
             userDtoList = new ArrayList<>();
-            for (User u : usersList) {
+            for (UserEntity u : usersList) {
                 userDtoList.add(convertUserToUserDto(u));
             }
         }
         return userDtoList;
     }
 
-    public static List<UserDto> convertUserPageToUserDtoList(Page<User> userPage) {
+    public static List<UserDto> convertUserPageToUserDtoList(Page<UserEntity> userPage) {
         List<UserDto> userDtoList = null;
         if (userPage != null && !userPage.isEmpty()) {
             userDtoList = new ArrayList<>();
-            for (User u : userPage) {
+            for (UserEntity u : userPage) {
                 userDtoList.add(convertUserToUserDto(u));
             }
         }

@@ -22,7 +22,7 @@ public class UserExam {
     private Long id;
 
     @ManyToOne
-    private User user;
+    private UserEntity userEntity;
 
     @ManyToOne
     private Exam exam;

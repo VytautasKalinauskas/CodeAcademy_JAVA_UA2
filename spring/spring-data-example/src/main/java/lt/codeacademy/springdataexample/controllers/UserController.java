@@ -16,7 +16,6 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@PreAuthorize("hasRole('TEACHER')")
 @RequestMapping("/users")
 public class UserController {
 

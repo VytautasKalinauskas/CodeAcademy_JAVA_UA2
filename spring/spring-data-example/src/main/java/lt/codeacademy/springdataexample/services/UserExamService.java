@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lt.codeacademy.springdataexample.dto.HoldExamDto;
 import lt.codeacademy.springdataexample.entities.Answer;
 import lt.codeacademy.springdataexample.entities.Exam;
-import lt.codeacademy.springdataexample.entities.User;
+import lt.codeacademy.springdataexample.entities.UserEntity;
 import lt.codeacademy.springdataexample.entities.UserExam;
 import lt.codeacademy.springdataexample.repositories.UserExamRepository;
 import org.springframework.stereotype.Service;
@@ -31,7 +31,7 @@ public class UserExamService {
 
         UserExam userExam = new UserExam();
         userExam.setScore(Double.valueOf(correctAnswerIds.size()));
-        userExam.setUser(new User(holdExamDto.getUserId()));
+        userExam.setUserEntity(new UserEntity(holdExamDto.getUserId()));
         userExam.setExam(new Exam(holdExamDto.getExamId()));
         List<Answer> answerList = new ArrayList<>();
         holdExamDto.getAnswerIds().forEach(answerId -> {

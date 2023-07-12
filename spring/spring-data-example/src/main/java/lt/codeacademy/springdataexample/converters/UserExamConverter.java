@@ -1,8 +1,6 @@
 package lt.codeacademy.springdataexample.converters;
 
-import lt.codeacademy.springdataexample.dto.AnswerDTO;
 import lt.codeacademy.springdataexample.dto.UserExamDto;
-import lt.codeacademy.springdataexample.entities.Answer;
 import lt.codeacademy.springdataexample.entities.UserExam;
 
 import java.util.ArrayList;
@@ -22,8 +20,8 @@ public abstract class UserExamConverter {
                 userExamDto.setExamId(userExam.getExam().getId());
             }
 
-            if(userExam.getUser() != null) {
-                userExamDto.setUserId(userExam.getUser().getId());
+            if(userExam.getUserEntity() != null) {
+                userExamDto.setUserId(userExam.getUserEntity().getId());
             }
         }
         return userExamDto;
